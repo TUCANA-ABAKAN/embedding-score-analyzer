@@ -1,5 +1,3 @@
-# streamlit_app_v0_4_6.py
-
 import streamlit as st
 import requests
 from bs4 import BeautifulSoup
@@ -36,7 +34,19 @@ def clean_text_from_url(url):
         return ""
 
 def chunk_text_by_sentence(text, chunk_size=500):
-    sentences = sent_tokenize(text, language='english')
+    import os
+    import pickle
+    from nltk.tokenize.punkt import PunktSentenceTokenizer
+
+    punkt_path = os.path.join('streamlit', '.nltk_data', 'tokenizers', 'punkt', 'english.pickle')
+    try:
+        with open(punkt_path, 'rb') as f:
+            tokenizer = pickle.load(f)
+    except FileNotFoundError:
+        raise FileNotFoundError(f"❌ Couldn't find punkt tokenizer at: {punkt_path}")
+
+    sentences = tokenizer.tokenize(text)
+
     chunks, current_chunk = [], ""
     for sentence in sentences:
         if len(current_chunk) + len(sentence) < chunk_size:
@@ -46,6 +56,7 @@ def chunk_text_by_sentence(text, chunk_size=500):
             current_chunk = sentence
     if current_chunk:
         chunks.append(current_chunk.strip())
+
     return chunks
 
 # ---------- 시각화 (다크모드용 개선 버전) ----------
