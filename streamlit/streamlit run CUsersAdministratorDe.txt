@@ -1,0 +1,3 @@
+streamlit run "C:\Users\Administrator\OneDrive - Concentrix Corporation\Tasks\python-project\05_Embedding_Relevance_Score\streamlit\# streamlit_app.py"
+
+streamlit run "C:\Users\CNXK\OneDrive - Concentrix Corporation\Tasks\python-project\05_Embedding_Relevance_Score\streamlit\# streamlit_app.py"
