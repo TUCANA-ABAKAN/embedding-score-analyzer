@@ -19,6 +19,8 @@ from reportlab.lib import colors
 from reportlab.lib.styles import getSampleStyleSheet
 
 nltk.download('punkt')
+# ✅ punkt 경로 수동 지정
+nltk.data.path.append("./.nltk_data")
 
 # 텍스트 전처리
 def clean_text_from_url(url):
