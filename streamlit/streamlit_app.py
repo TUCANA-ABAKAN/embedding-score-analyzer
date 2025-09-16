@@ -235,7 +235,7 @@ def draw_pca_plot_plotly(question_vectors, matched_chunk_vectors, questions, top
 
 # ---------- Streamlit UI ----------
 st.set_page_config(page_title="Embedding Relevance Score Analyzer", layout="wide")
-st.title("🔍 Embedding Relevance Score Analyzer v0.5")
+st.title("🔍 Embedding Relevance Score Analyzer v0.6")
 
 # 다크모드 하이라이팅 CSS
 st.markdown("""
